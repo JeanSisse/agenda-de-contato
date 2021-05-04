@@ -1,7 +1,9 @@
 # API REST em Java e MySQL que gerencie e disponibilize uma agenda de contatos de pessoas
 
 ## Instrução de instalação:
-* Clonar o projeto para algum diretório de sua preferência na sua máquina;
+* Clonar o projeto para algum diretório de sua preferência na sua máquina pelo link:
+* git@bitbucket.org:JeanSisse/agenda-de-contatos.git (SSH) OU
+* https://JeanSisse@bitbucket.org/JeanSisse/agenda-de-contatos.git (Http);;
 * Abrir o projeto em um IDE, Spring Tool Suite de preferência;
 *  
 * OBS.: usuário de banco de dados esta definido como "root" e o nome de banco de dados como
