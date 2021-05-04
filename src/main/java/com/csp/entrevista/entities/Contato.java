@@ -27,7 +27,7 @@ public class Contato implements Serializable{
 	@Column(nullable = false, name="sobrenome")
 	private String lastName;
 	
-	@Column(nullable = false, name="email")
+	@Column(nullable = false, name="email", unique=true)
 	private String email;
 	
 	@ElementCollection

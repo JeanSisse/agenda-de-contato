@@ -25,21 +25,6 @@ public class ContatosResource {
 	@Autowired
 	private ContatoService contatoService;
 	
-//	@RequestMapping(method=RequestMethod.GET)
-//	public ResponseEntity<List<Contato>> findAll() {
-//		
-//		List<Contato> list = contatoService.findAll();
-//		return ResponseEntity.ok(list);
-//	}
-	
-	
-//	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-//	public ResponseEntity<Contato> findById(@PathVariable Integer id) {
-//		
-//		Contato obj = contatoService.findById(id);
-//		return ResponseEntity.ok(obj);
-//	}
-	
 	@GetMapping
 	public ResponseEntity<List<Contato>> findByName(@RequestParam(required=false) String name) {
 		if (name == null || name.isEmpty()) {
@@ -84,79 +69,4 @@ public class ContatosResource {
 		contatoService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-	
-	/**
-	 * Aplicação utilizado para testar o API: Postman
-	 * 
-	 * 
-	 * ** PESQUISAR CONTATOS com o métod GET **
-	 * 
-	 * Listar todos os contatos (ex.: http://localhost:8080/contatos)
-	 * Filtra pelo nome (ex.: http://localhost:8080/contatos?name=Nome da pessoa)
-	 * Filtra pelo email (ex.: http://localhost:8080/contatos/email@dominio.com
-	 * 
-	 * 
-	 * ** INSERIR CONTATO com o métod POST no formato JSON**
-	 * 
-	 * Ex.: acessar: http://localhost:8080/contatos/
-	 * Selecionar opção body
-	 * Setar opção "row" e na mesma aba escolher o formato "JSON" para o corpo da requisição a ser enviada
-	 * 
-	 * Formato JSON:
-	 * {
-     *	"name": "Nome do contato",
-     *	"lastName": "Sobrenome",
-     *	"email": "nome@dominio.com",
-     *	"telefone1": "número de telefone" (obrigatorio),
-     *	"telefone2": "número de telefone" (opcional),
-     *	"telefone3": "número de telefone" (opcional, máximo de 3 telefones neste formato)
-	 * }
-	 *  OU
-	 *  
-	 * {
-     *	"name": "Nome do contato",
-     *	"lastName": "Sobrenome",
-     *	"email": "nome@dominio.com",
-     *	"telefones": [
-     *		"número de telefone",
-     *		"número de telefone",
-     *		... (quantos telefones quiser neste formato)
-     *	 ]
-	 * }
-	 * 
-	 * ** ATUALIZAR CONTATO com o método PUT no formato JSON** 
-	 * Ex.: Encotrar o contato desejado (ver ** PESQUISAR CONTATOS com o métod GET **),
-	 * alterar o método de requisição para PUT, Selecionar opção body, 
-	 * Setar opção "row" e na mesma aba escolher o formato "JSON" para o corpo da requisição a ser enviada
-	 * Adicionar o id do contato a ser atualizado no link da requisição (Ex.: http://localhost:8080/contatos/id)
-	 * 
-	 * Formato JSON:
-	 * {
-     *	"name": "Nome do contato",
-     *	"lastName": "Sobrenome",
-     *	"email": "nome@dominio.com",
-     *	"telefone1": "número de telefone" (obrigatorio),
-     *	"telefone2": "número de telefone" (opcional),
-     *	"telefone3": "número de telefone" (opcional, máximo de 3 telefones neste formato)
-	 * }
-	 *  OU
-	 *  
-	 * {
-     *	"name": "Nome do contato",
-     *	"lastName": "Sobrenome",
-     *	"email": "nome@dominio.com",
-     *	"telefones": [
-     *		"número de telefone",
-     *		"número de telefone",
-     *		... (quantos telefones quiser neste formato)
-     *	 ]
-	 * }
-	 * 
-	 * 
-	 * ** REMOVER CONTATO com método DELETE**
-	 * 
-	 * Ex.: Filtrar o contato a ser deletado, alterar o método para DELETE e informar o id do contato desejado
-	 * (http://localhost:8080/contatos/idDoContatoParaDeletar)
-	 * 
-	 * */
 }
